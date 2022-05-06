@@ -1,4 +1,4 @@
-// import { getData } from './fetch.js';
+import { getData } from './fetch.js';
 // const url = `https://www.johann-blog.one/wp-json/wp/v2/posts?_embed=true&per_page=8`;
 // const url = `https://www.johann-blog.one/wp-json/wp/v2/posts`;
 const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=12`;
@@ -8,26 +8,24 @@ const heroImage = document.querySelector('.hero-image');
 const cardList = document.querySelector('.slider-container');
 const slider = document.querySelector('.slider');
 const mobileSlider = document.querySelector('.mobile-next-and-prev-btns');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
 const heroHeader = document.querySelector('.hero-text-container h1');
 const heroParagraph = document.querySelector('.hero-paragraph');
+const spinner = document.querySelector('.spinner');
 
 let heroID = 0;
-
-async function getData(url) {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
+let data = null;
 
 async function displayData() {
-  const data = await getData(url);
+  data = await getData(url);
+  if (data) {
+    spinner.style.display = 'none';
+  }
   displayHeroImage(data);
   mapData(data);
   mobileSlider.addEventListener('click', (e) => mobileSliderFunction(e, data));
 }
-window.addEventListener('load', displayData);
+
+displayData();
 
 function displayHeroImage(data) {
   const initialImage = data[heroID]._embedded['wp:featuredmedia'][0];
@@ -60,12 +58,12 @@ function mobileSliderFunction(e, data) {
 function mapData(data) {
   data.map((post, index) => {
     const media = post._embedded['wp:featuredmedia'][0];
-    const { alt_text, media_details } = media;
+    const { alt_text, id, media_details } = media;
     const { sizes } = media_details;
 
     slider.innerHTML += `
     <li class="card">
-      <a href="#">
+      <a href="./details.html?id=${post.id}">
         <img data-id="${post.id}" src="${sizes.full.source_url}" alt="${alt_text}" />
         <div class="text-content">
         <h3>${post.title.rendered}</h3>
@@ -120,7 +118,6 @@ let sliderValue = 0;
 const maxValue = 2;
 
 section.addEventListener('click', (e) => {
-  console.log('prev');
   if (e.target.className.includes('fa-chevron-left')) {
     sliderValue -= 1;
     if (sliderValue < 0) {

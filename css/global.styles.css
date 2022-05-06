@@ -63,6 +63,36 @@ button {
 
 /* classes */
 
+.spinner {
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 80px;
+  height: 80px;
+}
+
+.spinner:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--clr-black);
+  animation: spinn 1.5s linear infinite;
+  border-color: var(--clr-black) var(--clr-white);
+  border-radius: 50%;
+}
+
+@keyframes spinn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .section-center {
   width: 95%;
   max-width: 1200px;

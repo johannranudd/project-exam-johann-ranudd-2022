@@ -4,7 +4,7 @@
   max-width: 1200px;
   height: 40vh;
   margin: auto;
-  background: var(--clr-black);
+  /* background: var(--clr-black); */
   overflow: hidden;
 }
 
@@ -43,8 +43,8 @@
   margin-bottom: 1rem;
 }
 
-.hero-text-container button {
-  color: var(--clr-white);
+.hero-text-container a {
+  color: var(--clr-orange);
   cursor: pointer;
   transition: 0.3s;
 }

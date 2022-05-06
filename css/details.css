@@ -1,0 +1,28 @@
+.details-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.details-content img {
+  max-width: 600px;
+}
+
+.details-content h1 {
+  padding: 1rem 0;
+}
+
+/* !MEDIA */
+
+@media (min-width: 800px) {
+  .details-content {
+    max-width: 800px;
+  }
+  .details-content img {
+    max-width: 400px;
+    float: left;
+    margin-right: 1rem;
+  }
+  .details-content h1 {
+    text-align: left;
+  }
+}
