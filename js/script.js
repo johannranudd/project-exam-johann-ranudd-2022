@@ -1,4 +1,4 @@
-const url = `http://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=12`;
+const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=12`;
 
 const testImg = document.querySelector('.test-img');
 
