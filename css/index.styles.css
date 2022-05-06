@@ -1,0 +1,179 @@
+.hero-section {
+  position: relative;
+  display: grid;
+  max-width: 1200px;
+  height: 40vh;
+  margin: auto;
+  background: var(--clr-black);
+  overflow: hidden;
+}
+
+.hero-image-container {
+  height: 400px;
+}
+
+.hero-image {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.hero-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--clr-orange);
+  max-height: 200px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.hero-text-container h1 {
+  padding-bottom: 0.5rem;
+}
+
+.hero-paragraph {
+  margin-bottom: 1rem;
+}
+
+.hero-text-container button {
+  color: var(--clr-white);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text-container button:hover {
+  color: var(--clr-orange);
+}
+
+.mobile-next-and-prev-btns {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobile-next-and-prev-btns button {
+  font-size: 2rem;
+  color: var(--clr-orange);
+  cursor: pointer;
+}
+
+/* CARDS */
+.slider-container {
+  display: none;
+}
+
+.slider {
+  display: flex;
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  height: 200px;
+  transition: 0.3s;
+}
+
+/* buttons */
+.prev-btn,
+.next-btn {
+  display: none;
+}
+
+/* !MEDIA */
+
+@media (min-width: 800px) {
+  .hero-section {
+    grid-template-columns: 70% 30%;
+  }
+
+  .hero-text-container {
+    position: relative;
+    text-align: left;
+  }
+  .hero-text-container h1 {
+    text-align: left;
+  }
+  .mobile-next-and-prev-btns {
+    display: none;
+  }
+
+  .slider-section {
+    position: relative;
+    max-width: 1000px;
+    width: 95%;
+    margin: auto;
+  }
+
+  .slider-container {
+    position: relative;
+    top: -4rem;
+    display: block;
+    overflow: hidden;
+    height: 250px;
+    width: 95%;
+    max-width: 900px;
+    margin: auto;
+  }
+  .slider {
+    width: 100%;
+  }
+  .card {
+    min-width: 25%;
+    padding: 0 1rem;
+  }
+
+  /* .card:first-child {
+    padding-left: 0;
+  }
+  .card:last-child {
+    padding-right: 0;
+  } */
+
+  .card a {
+    display: grid;
+    place-items: center;
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card h3 {
+    text-align: center;
+  }
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+
+    font-size: 2rem;
+    color: var(--clr-orange);
+    cursor: pointer;
+    display: block;
+    /* z-index: 99; */
+  }
+
+  .prev-btn {
+    /* left: -20px; */
+    transform: translateY(-6rem);
+  }
+
+  .next-btn {
+    right: 0px;
+    transform: translateY(-6rem);
+  }
+}

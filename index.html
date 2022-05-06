@@ -4,15 +4,85 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="shipwreck blog" />
+    <meta name="author" content="Johann Ranudd" />
+    <meta name="keywords" content="homepage page, shipwreck-blog" />
+
+    <link rel="stylesheet" href="./css/global.styles.css" />
+    <link rel="stylesheet" href="./css/index.styles.css" />
+    <script
+      src="https://kit.fontawesome.com/7246593e30.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Johann-Blog</title>
   </head>
   <body>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <h1>hello</h1>
-    <img class="test-img" src="" alt="" />
+    <header class="navbar">
+      <nav class="inner-navbar">
+        <a href="./index.html" class="logo">
+          <div>LOGO</div>
+        </a>
 
-    <!-- JS -->
-    <script src="./js/script.js"></script>
+        <ul class="main-menu">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./all-posts.html">All Posts</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu">
+          <button class="menu-btn">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- hero -->
+    <section class="hero-section">
+      <div class="hero-image-container">
+        <img class="hero-image" />
+      </div>
+
+      <div class="hero-text-container">
+        <h1>Sao Paulo</h1>
+        <article class="hero-paragraph"></article>
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <div class="mobile-next-and-prev-btns">
+        <button class="mobile-prev-btn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="mobile-next-btn">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- section-center -->
+    <section class="slider-section">
+      <button class="prev-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="next-btn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <!-- slider container -->
+      <div class="slider-container">
+        <!-- buttons -->
+        <!-- <div class="next-and-prev-btns">
+          
+        </div> -->
+
+        <!-- slider -->
+        <ul class="slider"></ul>
+      </div>
+    </section>
+
+    <!-- <script type="module" src="./js/fetch.js"></script> -->
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
