@@ -35,18 +35,34 @@ body {
 .modal {
   display: none;
   position: absolute;
-  min-height: 100%;
-  min-width: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
   z-index: 9;
-  /* padding-top: 10vh; */
+}
+
+.show-modal {
+  display: grid;
+  justify-items: center;
+  padding-top: 13.2rem;
+  cursor: pointer;
 }
 
 .modal img {
-  max-width: 70%;
+  width: 95%;
+  max-width: 1200px;
+  cursor: auto;
 }
 
 /* !MEDIA */
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
+  .show-modal {
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+  }
+  .modal img {
+  }
 }

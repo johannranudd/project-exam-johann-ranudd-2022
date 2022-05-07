@@ -10,12 +10,17 @@ const url = `https://johannblog.one/wp-json/wp/v2/posts/${urlID}?_embed=true`;
 const detailsContent = document.querySelector('.details-content');
 const detailsHeader = document.querySelector('.details-header');
 const modal = document.querySelector('.modal');
+const spinner = document.querySelector('.spinner');
 
 async function displaySingleData() {
   const data = await getData(url);
-  console.log(data);
+
+  if (data) {
+    spinner.style.display = 'none';
+  }
   const { title, excerpt, _embedded } = data;
 
+  //   render content
   detailsHeader.innerHTML = title.rendered;
   detailsContent.innerHTML += `
   <div class="image-container">
@@ -27,20 +32,23 @@ async function displaySingleData() {
   </div>
   `;
 
+  //   show modal
   const imageContainer = document.querySelector('.image-container');
   imageContainer.addEventListener('click', () => {
-    modal.style.display = 'grid';
-    modal.style.justifyItems = 'center';
-    modal.style.marginTop = `${window.innerHeight / 2}`;
+    modal.classList.add('show-modal');
     document.body.style.overflow = 'hidden';
-    console.log(window.innerHeight);
-    modal.innerHTML += `
-        <img src="${_embedded['wp:featuredmedia'][0].source_url}" alt="${_embedded['wp:featuredmedia'][0].alt_text}" />
+    modal.innerHTML = `
+        <img class="modal-image" src="${_embedded['wp:featuredmedia'][0].source_url}" alt="${_embedded['wp:featuredmedia'][0].alt_text}" />
     `;
   });
 }
-
 displaySingleData();
-{
-  /* <h1>${title.rendered}</h1>; */
-}
+
+// close modal
+modal.addEventListener('click', (e) => {
+  if (e.target.className !== 'modal-image') {
+    modal.classList.remove('show-modal');
+    document.body.style.overflow = 'scroll';
+    document.body.style.overflowX = 'hidden';
+  }
+});

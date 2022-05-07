@@ -11,32 +11,31 @@ const mobileSlider = document.querySelector('.mobile-next-and-prev-btns');
 const heroHeader = document.querySelector('.hero-text-container h1');
 const heroParagraph = document.querySelector('.hero-paragraph');
 const spinner = document.querySelector('.spinner');
+const featuredList = document.querySelector('.featured-list');
 
 let heroID = 0;
-let data = null;
 
 async function displayData() {
-  data = await getData(url);
+  const data = await getData(url);
   if (data) {
     spinner.style.display = 'none';
   }
   displayHeroImage(data);
-  mapData(data);
+  createSliderCards(data);
   mobileSlider.addEventListener('click', (e) => mobileSliderFunction(e, data));
+  displayFeaturedPosts(data);
 }
-
 displayData();
 
 function displayHeroImage(data) {
   const initialImage = data[heroID]._embedded['wp:featuredmedia'][0];
-  heroImage.src = initialImage.media_details.sizes.full.source_url;
+  heroImage.src = initialImage.source_url;
   heroImage.alt = initialImage.alt_text;
   heroHeader.innerHTML = data[heroID].title.rendered;
   heroParagraph.innerHTML = data[heroID].excerpt.rendered.substring(0, 50);
 }
 
-// !MOBILE SLIDE FUNCTION
-
+// mobile slider function
 function mobileSliderFunction(e, data) {
   const maxLength = data.length;
   if (e.target.className.includes('fa-chevron-left')) {
@@ -54,17 +53,14 @@ function mobileSliderFunction(e, data) {
   displayHeroImage(data);
 }
 
-// !MAPDATA
-function mapData(data) {
+// createSliderCards
+function createSliderCards(data) {
   data.map((post, index) => {
     const media = post._embedded['wp:featuredmedia'][0];
-    const { alt_text, id, media_details } = media;
-    const { sizes } = media_details;
-
     slider.innerHTML += `
     <li class="card">
       <a href="./details.html?id=${post.id}">
-        <img data-id="${post.id}" src="${sizes.full.source_url}" alt="${alt_text}" />
+        <img data-id="${post.id}" src="${media.source_url}" alt="${media.alt_text}" />
         <div class="text-content">
         <h3>${post.title.rendered}</h3>
         </div>
@@ -73,9 +69,14 @@ function mapData(data) {
     `;
   });
 
+  const cardImages = slider.querySelectorAll('img');
+  dynamicHeroImage(cardImages, data);
+}
+
+// dynamic hero image
+function dynamicHeroImage(cardImages, data) {
   let currentImageHovered = 0;
 
-  const cardImages = slider.querySelectorAll('img');
   cardImages.forEach((cardImage, index) => {
     let timeout1;
     let timeout2;
@@ -112,8 +113,7 @@ function mapData(data) {
   });
 }
 
-// !SLIDE FUNCTION
-
+// slider functionality
 let sliderValue = 0;
 const maxValue = 2;
 
@@ -145,4 +145,25 @@ function slideFunction() {
   if (sliderValue === maxValue) {
     slider.style.transform = 'translate(-200%, 0%)';
   }
+}
+
+function displayFeaturedPosts(data) {
+  const filterByFeatured = data.filter((featuredItem) => {
+    if (featuredItem.tags.length) {
+      return featuredItem;
+    }
+  });
+  filterByFeatured.map((item) => {
+    const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
+    const altText = item._embedded['wp:featuredmedia'][0].alt_text;
+    featuredList.innerHTML += `
+      <li>
+        <img src="${imageUrl}" alt="${altText}"/>
+        <div>
+          ${item.content.rendered.substring(0, 200)} <br/>
+          <a href="./details.html?id=${item.id}">Read more</a>
+        </div>
+      </li>
+    `;
+  });
 }
