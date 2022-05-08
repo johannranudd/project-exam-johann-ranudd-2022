@@ -1,15 +1,10 @@
 .hero-section {
   position: relative;
   display: grid;
-  max-width: 1200px;
-  height: 40vh;
+  /* max-width: 1440px; */
+  height: 65vh;
   margin: auto;
-  /* background: var(--clr-black); */
   overflow: hidden;
-}
-
-.hero-image-container {
-  height: 400px;
 }
 
 .hero-image {
@@ -96,11 +91,12 @@
   width: 90%;
   max-width: 600px;
   margin: auto;
+  margin-top: -2rem;
 }
 
 .featured-section h2 {
   text-align: center;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 .featured-list {
@@ -129,6 +125,8 @@
 @media (min-width: 800px) {
   .hero-section {
     grid-template-columns: 70% 30%;
+    height: 65vh;
+    max-width: 1440px;
   }
 
   .hero-text-container {

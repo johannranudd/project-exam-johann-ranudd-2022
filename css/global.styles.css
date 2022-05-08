@@ -61,8 +61,9 @@ button {
   border: none;
 }
 
-/* classes */
+/* CLASSES */
 
+/* spinner */
 .spinner {
   position: absolute;
   top: 50%;
@@ -93,19 +94,21 @@ button {
   }
 }
 
+/* modules */
 .section-center {
   width: 95%;
   max-width: 1200px;
   margin: auto;
 }
 
+/* navbar */
 .navbar {
   position: relative;
 }
 
 .inner-navbar {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
   padding: 1.5rem 0;
   display: flex;
@@ -113,16 +116,52 @@ button {
   align-items: center;
 }
 
+/* mobile menu */
 .mobile-menu {
   position: fixed;
   top: 0;
   left: -200vw;
   width: 100vw;
   min-width: 300px;
-  background: #fed;
+  background: var(--clr-white);
   min-height: 100vh;
   z-index: 1;
   transition: 0.3s;
+  padding-top: 1rem;
+  overflow: hidden;
+}
+
+.mobile-menu li {
+  /* background: #fef; */
+}
+
+.mobile-menu a {
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.mobile-menu a:hover {
+  transform: scale(1.1);
+  box-shadow: inset 600px 0px 50px rgba(0, 0, 0, 0.116);
+  padding-left: 2rem;
+}
+
+.mobile-menu a:after {
+  content: '';
+  width: 0;
+  height: 1px;
+  background: var(--clr-orange);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s;
+}
+
+.mobile-menu a:hover:after {
+  width: 100%;
 }
 
 .show-menu {
@@ -132,14 +171,23 @@ button {
 .menu-btn {
   z-index: 2;
   cursor: pointer;
+  /* transition: 0.3s; */
 }
 
 .menu-btn:hover {
   opacity: 0.7;
 }
 
-.main-menu {
-  display: none;
+.menu-is-open .line-1 {
+  transform: rotate(-45deg) translateY(10px);
+}
+
+.menu-is-open .line-2 {
+  opacity: 0;
+}
+
+.menu-is-open .line-3 {
+  transform: rotate(45deg) translateY(-10px);
 }
 
 .line {
@@ -147,6 +195,13 @@ button {
   height: 2px;
   margin: 5px 0;
   background: var(--clr-black);
+  transition: 0.3s;
+}
+
+/* main  menu */
+
+.main-menu {
+  display: none;
 }
 
 /* !MEDIA */

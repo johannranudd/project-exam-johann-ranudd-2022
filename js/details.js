@@ -11,6 +11,20 @@ const detailsContent = document.querySelector('.details-content');
 const detailsHeader = document.querySelector('.details-header');
 const modal = document.querySelector('.modal');
 const spinner = document.querySelector('.spinner');
+const mobileMenu = document.querySelector('.mobile-menu');
+const menuBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show-menu');
+  menuBtn.classList.toggle('menu-is-open');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768 && mobileMenu.className.includes('show-menu')) {
+    mobileMenu.classList.remove('show-menu');
+    menuBtn.classList.remove('menu-is-open');
+  }
+});
 
 async function displaySingleData() {
   const data = await getData(url);

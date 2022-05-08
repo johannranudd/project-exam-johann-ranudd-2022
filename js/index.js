@@ -17,11 +17,13 @@ const menuBtn = document.querySelector('.menu-btn');
 
 menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('show-menu');
+  menuBtn.classList.toggle('menu-is-open');
 });
 
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 768 && mobileMenu.className.includes('show-menu')) {
     mobileMenu.classList.remove('show-menu');
+    menuBtn.classList.remove('menu-is-open');
   }
 });
 
@@ -90,23 +92,25 @@ function dynamicHeroImage(cardImages, data) {
   let currentImageHovered = 0;
 
   cardImages.forEach((cardImage, index) => {
-    let timeout1;
-    let timeout2;
-    cardImage.addEventListener('mouseover', (e) => {
+    let timeout1 = null;
+    let timeout2 = null;
+
+    cardImage.addEventListener('mouseenter', (e) => {
       if (Number(cardImage.dataset.id) !== currentImageHovered) {
         currentImageHovered = Number(cardImage.dataset.id);
 
         const filteredHeroImage = data.filter((item) => {
-          return item.id === Number(cardImage.dataset.id);
+          return item.id === currentImageHovered;
         });
+
+        const hoverImage =
+          filteredHeroImage[0]._embedded['wp:featuredmedia'][0].source_url;
 
         timeout1 = setTimeout(() => {
           heroImage.classList.add('fade-out');
         }, 700);
 
         timeout2 = setTimeout(() => {
-          const hoverImage =
-            filteredHeroImage[0]._embedded['wp:featuredmedia'][0].source_url;
           heroImage.src = hoverImage;
           heroImage.alt =
             filteredHeroImage[0]._embedded['wp:featuredmedia'][0].alt_text;
@@ -118,7 +122,10 @@ function dynamicHeroImage(cardImages, data) {
       }
     });
 
-    cardImage.addEventListener('mouseout', () => {
+    cardImage.addEventListener('mouseleave', () => {
+      if (heroImage.className.includes('fade-out')) {
+        heroImage.classList.remove('fade-out');
+      }
       clearTimeout(timeout1);
       clearTimeout(timeout2);
     });
