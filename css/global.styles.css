@@ -100,7 +100,7 @@ button {
 }
 
 .navbar {
-  /* z-index: 99; */
+  position: relative;
 }
 
 .inner-navbar {
@@ -113,19 +113,33 @@ button {
   align-items: center;
 }
 
-.main-menu {
-  display: none;
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -200vw;
+  width: 100vw;
+  min-width: 300px;
+  background: #fed;
+  min-height: 100vh;
+  z-index: 1;
+  transition: 0.3s;
 }
 
-.mobile-menu {
+.show-menu {
+  left: 0;
 }
 
 .menu-btn {
+  z-index: 2;
   cursor: pointer;
 }
 
 .menu-btn:hover {
   opacity: 0.7;
+}
+
+.main-menu {
+  display: none;
 }
 
 .line {
@@ -137,6 +151,12 @@ button {
 
 /* !MEDIA */
 
+@media (min-width: 400px) {
+  .mobile-menu {
+    max-width: 250px;
+  }
+}
+
 @media (min-width: 768px) {
   .main-menu {
     display: flex;
@@ -146,6 +166,9 @@ button {
     margin: 0 0.5rem;
   }
   .mobile-menu {
+    display: none;
+  }
+  .menu-btn {
     display: none;
   }
 }

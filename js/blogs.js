@@ -3,29 +3,44 @@ const listOfBlogs = document.querySelector('.list-of-blogs');
 const spinner = document.querySelector('.spinner');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
-let offset = 5;
-
-const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=5`;
-// const url2 = `https://www.johannblog.one/wp-json/wp/v2/posts?per_page=12&_fields[]=id&_fields[]=title`;
+const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=10`;
 
 async function displayTenFirstBlogs() {
   const data = await getData(url);
   if (data) {
     spinner.remove();
+    mapData(data);
+    loadMoreBtn.addEventListener('click', loadeMoreFunction);
   }
 }
 displayTenFirstBlogs();
 
-loadMoreBtn.addEventListener('click', loadeMoreFunction);
+// MAP DATA
+function mapData(data) {
+  data.map((item) => {
+    const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
+    const altText = item._embedded['wp:featuredmedia'][0].alt_text;
+    listOfBlogs.innerHTML += `
+    <li>
+        <img src="${imageUrl}" alt="${altText}"/>
+        <div>
+          ${item.content.rendered.substring(0, 200)} <br/>
+          <a href="./details.html?id=${item.id}">Read more</a>
+        </div>
+      </li>
+  `;
+  });
+}
 
-async function loadeMoreFunction(data) {
+// LOAD MORE
+let offset = 10;
+async function loadeMoreFunction() {
   const offsetURL = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&offset=${offset}&per_page=2`;
   const moreData = await getData(offsetURL);
-  console.log(moreData);
-  if (moreData.length) {
-    console.log('has data');
+  if (moreData.length > 0) {
+    offset += moreData.length;
+    mapData(moreData);
   } else {
-    console.log('out of data');
+    return;
   }
-  offset += 2;
 }

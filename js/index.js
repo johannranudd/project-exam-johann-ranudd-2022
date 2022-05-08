@@ -12,6 +12,18 @@ const heroHeader = document.querySelector('.hero-text-container h1');
 const heroParagraph = document.querySelector('.hero-paragraph');
 const spinner = document.querySelector('.spinner');
 const featuredList = document.querySelector('.featured-list');
+const mobileMenu = document.querySelector('.mobile-menu');
+const menuBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('show-menu');
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768 && mobileMenu.className.includes('show-menu')) {
+    mobileMenu.classList.remove('show-menu');
+  }
+});
 
 let heroID = 0;
 

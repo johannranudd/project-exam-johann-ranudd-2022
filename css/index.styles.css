@@ -104,7 +104,7 @@
 }
 
 .featured-list {
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
 }
 
 .featured-list li {
@@ -215,6 +215,10 @@
 
   .featured-section {
     max-width: 900px;
+  }
+
+  .featured-list {
+    padding: 0 1rem;
   }
 
   .featured-list li {
