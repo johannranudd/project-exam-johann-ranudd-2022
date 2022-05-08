@@ -1,11 +1,7 @@
-body {
-  position: relative;
-}
-
 .details-content {
   max-width: 600px;
   margin: auto;
-  /* margin-bottom: 2rem; */
+  padding-bottom: 4rem;
 }
 
 .image-container {

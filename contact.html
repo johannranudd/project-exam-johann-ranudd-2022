@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="shipwreck blog" />
     <meta name="author" content="Johann Ranudd" />
-    <meta name="keywords" content="blogs page, shipwreck, blog" />
+    <meta name="keywords" content="homepage page, shipwreck-blog" />
 
     <link rel="stylesheet" href="./css/global.styles.css" />
-    <link rel="stylesheet" href="./css/blogs.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
     <script
       src="https://kit.fontawesome.com/7246593e30.js"
       crossorigin="anonymous"
     ></script>
-    <title>Blogs</title>
+    <title>Johann-Blog</title>
   </head>
   <body>
     <header class="navbar">
@@ -46,27 +46,25 @@
         </ul>
       </nav>
     </header>
-    <!-- spinner -->
-    <div class="spinner"></div>
 
-    <!-- main content -->
-    <section class="blog-section">
-      <h2>blogs</h2>
-      <!-- sort -->
-      <div class="sort-by-buttons">
-        <button data-id="latest" class="latest-btn">latest</button>
-        <button data-id="oldest" class="oldest-btn">Oldest</button>
-      </div>
-      <ul class="list-of-blogs"></ul>
+    <!-- content -->
+
+    <h1>Contact</h1>
+
+    <section class="section-center">
+      <form action="">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" />
+        <button type="submit">Submit</button>
+      </form>
     </section>
-    <div class="load-more-btn-container">
-      <button class="load-more-btn">Load more</button>
-    </div>
-
     <!-- footer -->
     <footer>this is a footer</footer>
-
     <!-- JS -->
-    <script type="module" src="./js/blogs.js"></script>
+    <script type="module" src="./js/contact.js"></script>
   </body>
 </html>

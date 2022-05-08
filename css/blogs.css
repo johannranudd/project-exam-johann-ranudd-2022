@@ -10,6 +10,11 @@
   text-align: center;
   margin: 2rem 0;
 }
+.sort-by-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
 
 .list-of-blogs {
   /* padding: 0 1rem; */
@@ -36,6 +41,7 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
+  padding-bottom: 4rem;
 }
 @media (min-width: 768px) {
   .blog-section {

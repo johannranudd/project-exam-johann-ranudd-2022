@@ -2,6 +2,7 @@ import { getData } from './fetch.js';
 const listOfBlogs = document.querySelector('.list-of-blogs');
 const spinner = document.querySelector('.spinner');
 const loadMoreBtn = document.querySelector('.load-more-btn');
+const sortByBtns = document.querySelector('.sort-by-buttons');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuBtn = document.querySelector('.menu-btn');
 
@@ -19,11 +20,14 @@ window.addEventListener('resize', () => {
 
 const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=10`;
 
+let totalData = [];
+
 async function displayTenFirstBlogs() {
   const data = await getData(url);
+  totalData = data;
   if (data) {
     spinner.remove();
-    mapData(data);
+    mapData(totalData);
     loadMoreBtn.addEventListener('click', loadeMoreFunction);
   }
 }
@@ -31,6 +35,7 @@ displayTenFirstBlogs();
 
 // MAP DATA
 function mapData(data) {
+  listOfBlogs.innerHTML = '';
   data.map((item) => {
     const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
     const altText = item._embedded['wp:featuredmedia'][0].alt_text;
@@ -44,6 +49,7 @@ function mapData(data) {
       </li>
   `;
   });
+  sortByBtns.addEventListener('click', (e) => sortByFunction(e));
 }
 
 // LOAD MORE
@@ -53,8 +59,35 @@ async function loadeMoreFunction() {
   const moreData = await getData(offsetURL);
   if (moreData.length > 0) {
     offset += moreData.length;
-    mapData(moreData);
+    moreData.map((item) => {
+      totalData.push(item);
+    });
+    mapData(totalData);
   } else {
     return;
+  }
+}
+
+function sortByFunction(e) {
+  const id = e.target.dataset.id;
+  if (id === 'latest') {
+    const latest = totalData.sort((a, b) => {
+      if (Date.parse(a.date) < Date.parse(b.date)) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    mapData(latest);
+  }
+  if (id === 'oldest') {
+    const oldest = totalData.sort((a, b) => {
+      if (Date.parse(a.date) > Date.parse(b.date)) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    mapData(oldest);
   }
 }

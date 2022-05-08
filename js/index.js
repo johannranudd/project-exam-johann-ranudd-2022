@@ -12,6 +12,8 @@ const heroHeader = document.querySelector('.hero-text-container h1');
 const heroParagraph = document.querySelector('.hero-paragraph');
 const spinner = document.querySelector('.spinner');
 const featuredList = document.querySelector('.featured-list');
+
+// mobile menu variables and functionality
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuBtn = document.querySelector('.menu-btn');
 
@@ -33,11 +35,13 @@ async function displayData() {
   const data = await getData(url);
   if (data) {
     spinner.remove();
+    displayHeroImage(data);
+    createSliderCards(data);
+    mobileSlider.addEventListener('click', (e) =>
+      mobileSliderFunction(e, data)
+    );
+    displayFeaturedPosts(data);
   }
-  displayHeroImage(data);
-  createSliderCards(data);
-  mobileSlider.addEventListener('click', (e) => mobileSliderFunction(e, data));
-  displayFeaturedPosts(data);
 }
 displayData();
 
