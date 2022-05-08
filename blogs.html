@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="shipwreck blog" />
     <meta name="author" content="Johann Ranudd" />
-    <meta name="keywords" content="homepage page, shipwreck, blog, diving" />
+    <meta name="keywords" content="blogs page, shipwreck, blog" />
 
     <link rel="stylesheet" href="./css/global.styles.css" />
-    <link rel="stylesheet" href="./css/details.css" />
+    <link rel="stylesheet" href="./css/blogs.css" />
     <script
       src="https://kit.fontawesome.com/7246593e30.js"
       crossorigin="anonymous"
     ></script>
-    <title>Johannblog</title>
+    <title>Blogs</title>
   </head>
   <body>
-    <div class="spinner"></div>
-    <aside class="modal"></aside>
     <header class="navbar">
       <nav class="inner-navbar">
         <a href="./" class="logo">
@@ -28,7 +26,7 @@
         <ul class="main-menu">
           <li><a href="./">Home</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./blogss.html">All Posts</a></li>
+          <li><a href="./blogs.html">Blogs</a></li>
           <li><a href="./contact.html">Contact</a></li>
         </ul>
 
@@ -41,14 +39,14 @@
         </div>
       </nav>
     </header>
-
-    <section class="section-center">
-      <div class="details-content">
-        <h1 class="details-header"></h1>
-      </div>
-    </section>
+    <!-- spinner -->
+    <div class="spinner"></div>
+    <!-- main content -->
+    <h2>blogs</h2>
+    <ul class="list-of-blogs"></ul>
+    <button class="load-more-btn">Load more</button>
 
     <!-- JS -->
-    <script type="module" src="./js/details.js"></script>
+    <script type="module" src="./js/blogs.js"></script>
   </body>
 </html>

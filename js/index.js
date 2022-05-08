@@ -18,7 +18,7 @@ let heroID = 0;
 async function displayData() {
   const data = await getData(url);
   if (data) {
-    spinner.style.display = 'none';
+    spinner.remove();
   }
   displayHeroImage(data);
   createSliderCards(data);

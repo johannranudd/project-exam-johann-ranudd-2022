@@ -16,7 +16,7 @@ async function displaySingleData() {
   const data = await getData(url);
 
   if (data) {
-    spinner.style.display = 'none';
+    spinner.remove();
   }
   const { title, excerpt, _embedded } = data;
 
