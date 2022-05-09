@@ -1,8 +1,9 @@
-import { getData } from './fetch.js';
+import { getData } from './utils.js';
 const listOfBlogs = document.querySelector('.list-of-blogs');
 const spinner = document.querySelector('.spinner');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 const sortByBtns = document.querySelector('.sort-by-buttons');
+// mobile menu variables and functionality
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuBtn = document.querySelector('.menu-btn');
 

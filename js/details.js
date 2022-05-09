@@ -1,4 +1,4 @@
-import { getData } from './fetch.js';
+import { getData } from './utils.js';
 
 const urlPar = new URLSearchParams(window.location.search);
 const id = urlPar.get('id');

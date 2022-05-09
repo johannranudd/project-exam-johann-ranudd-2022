@@ -3,11 +3,30 @@
   place-items: center;
 }
 
-form {
+.contact-form {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 400px;
   padding: 2rem;
   border: 1px solid black;
+}
+
+.contact-form label {
+  text-transform: capitalize;
+  transition: 0.3s;
+  height: 3rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.danger {
+  background: red;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem 0.3rem;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
 }

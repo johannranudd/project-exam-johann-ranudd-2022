@@ -1,4 +1,4 @@
-import { getData } from './fetch.js';
+import { getData } from './utils.js';
 // const url = `https://www.johann-blog.one/wp-json/wp/v2/posts?_embed=true&per_page=8`;
 // const url = `https://www.johann-blog.one/wp-json/wp/v2/posts`;
 const url = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=12`;
