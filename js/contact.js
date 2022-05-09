@@ -21,7 +21,7 @@ const section = document.querySelector('.section-center');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   //   expressions
-  const nameRegEx = /^[a-zA-Z ]+$/;
+  const nameRegEx = /^[a-zA-Z \Wæøå]+$/;
   const emailRegEx =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   //   inputs
@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
   let messageValidated = false;
 
   //   validation
-  if (!nameRegEx.test(name.value) || name.value.length < 5) {
+  if (!nameRegEx.test(name.value) || name.value.length <= 5) {
     displayWarning(name, 'must be more than 5 characters');
   } else {
     nameValidated = true;
