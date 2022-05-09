@@ -32,6 +32,10 @@ body {
 footer {
   position: absolute;
   bottom: 0;
+  border: 1px solid var(--clr-light-grey);
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
 }
 
 h1 {
