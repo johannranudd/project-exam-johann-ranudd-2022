@@ -1,0 +1,66 @@
+body {
+  /* background: var(--clr-orange); */
+}
+
+.background-image-container {
+  position: absolute;
+  top: -250px;
+  left: 0;
+  right: 0;
+  background: var(--clr-orange) url('../images/torn-paper3.png') no-repeat
+    bottom center/contain;
+  height: 500px;
+  width: 100vw;
+  z-index: -1;
+}
+
+.section-center {
+  display: grid;
+  padding-top: 2rem;
+  max-width: 400px;
+  padding-bottom: 8rem;
+}
+
+.section-center p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
+
+.section-center img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  border-top-right-radius: 0;
+}
+
+/* !media */
+
+@media (min-width: 768px) {
+  .background-image-container {
+    top: -200px;
+  }
+  .section-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    grid-template-columns: 65% 35%;
+    width: 90%;
+    max-width: 900px;
+    padding-bottom: 0;
+  }
+  .section-center p {
+    margin: 0;
+    margin-right: 4rem;
+  }
+  .section-center img {
+  }
+}
+@media (min-width: 1200px) {
+  .background-image-container {
+    top: -120px;
+  }
+}

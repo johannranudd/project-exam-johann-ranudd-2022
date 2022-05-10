@@ -1,7 +1,6 @@
 .hero-section {
   position: relative;
   display: grid;
-  /* max-width: 1440px; */
   height: 65vh;
   margin: auto;
   overflow: hidden;
@@ -10,7 +9,6 @@
 .hero-image {
   height: 100%;
   width: 100%;
-
   object-fit: cover;
   transition: 0.3s;
 }
@@ -24,13 +22,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--clr-orange);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--clr-black);
   max-height: 200px;
   max-width: 90%;
+  padding: 2rem;
+  display: grid;
+  place-items: center;
   text-align: center;
 }
 
 .hero-text-container h1 {
+  padding: 0;
   padding-bottom: 0.5rem;
 }
 
@@ -39,13 +42,18 @@
 }
 
 .hero-text-container a {
-  color: var(--clr-orange);
+  color: var(--clr-black);
   cursor: pointer;
   transition: 0.3s;
+  padding: 0.5rem;
+  border: 2px solid var(--clr-orange);
+  background: var(--clr-orange);
+  border-radius: 5px;
 }
 
-.hero-text-container button:hover {
+.hero-text-container a:hover {
   color: var(--clr-orange);
+  background: var(--clr-white);
 }
 
 .mobile-next-and-prev-btns {
@@ -55,7 +63,7 @@
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
 }
 
 .mobile-next-and-prev-btns button {
@@ -98,6 +106,7 @@
 .featured-section h2 {
   text-align: center;
   margin-bottom: 2rem;
+  color: var(--clr-orange);
 }
 
 .featured-list {
@@ -132,6 +141,7 @@
 
   .hero-text-container {
     position: relative;
+    justify-items: start;
     text-align: left;
   }
   .hero-text-container h1 {
@@ -139,6 +149,11 @@
   }
   .mobile-next-and-prev-btns {
     display: none;
+  }
+
+  .hero-text-container a:hover {
+    color: var(--clr-orange);
+    /* opacity: 0.7; */
   }
 
   .slider-section {
@@ -166,13 +181,6 @@
     padding: 0 1rem;
   }
 
-  /* .card:first-child {
-    padding-left: 0;
-  }
-  .card:last-child {
-    padding-right: 0;
-  } */
-
   .card a {
     display: grid;
     place-items: center;
@@ -185,6 +193,7 @@
   }
 
   .card h3 {
+    color: var(--clr-black);
     text-align: center;
   }
 

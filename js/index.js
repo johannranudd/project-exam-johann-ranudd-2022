@@ -12,6 +12,7 @@ const heroHeader = document.querySelector('.hero-text-container h1');
 const heroParagraph = document.querySelector('.hero-paragraph');
 const spinner = document.querySelector('.spinner');
 const featuredList = document.querySelector('.featured-list');
+const readMoreHeroBtn = document.querySelector('.read-more-btn');
 
 // mobile menu variables and functionality
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -51,6 +52,7 @@ function displayHeroImage(data) {
   heroImage.alt = initialImage.alt_text;
   heroHeader.innerHTML = data[heroID].title.rendered;
   heroParagraph.innerHTML = data[heroID].excerpt.rendered.substring(0, 50);
+  readMoreHeroBtn.href = `./details.html?id=${data[heroID].id}`;
 }
 
 // mobile slider function
@@ -121,6 +123,7 @@ function dynamicHeroImage(cardImages, data) {
           heroHeader.innerHTML = filteredHeroImage[0].title.rendered;
           heroParagraph.innerHTML =
             filteredHeroImage[0].excerpt.rendered.substring(0, 50);
+          readMoreHeroBtn.href = `./details.html?id=${filteredHeroImage[0].id}`;
           heroImage.classList.remove('fade-out');
         }, 1000);
       }
