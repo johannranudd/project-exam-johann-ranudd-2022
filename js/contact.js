@@ -72,5 +72,5 @@ function displayWarning(name, message) {
   setTimeout(() => {
     label.innerHTML = name.id;
     label.classList.remove('danger');
-  }, 1000);
+  }, 5000);
 }

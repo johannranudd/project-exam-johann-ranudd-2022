@@ -293,6 +293,11 @@ button {
 }
 @media (min-width: 1440px) {
   .background-image-container {
-    top: -100px;
+    top: -140px;
+  }
+}
+@media (min-width: 1800px) {
+  .background-image-container {
+    top: -80px;
   }
 }
