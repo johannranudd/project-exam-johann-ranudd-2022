@@ -73,6 +73,11 @@
   background: var(--clr-orange);
 }
 
+.all-posts-warning {
+  text-align: center;
+  background: var(--clr-alert);
+}
+
 /* !media */
 @media (min-width: 768px) {
   .blog-section {
