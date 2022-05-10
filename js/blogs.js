@@ -65,12 +65,14 @@ async function loadeMoreFunction() {
     });
     mapData(totalData);
   } else {
-    const allPostsWarning = `<div class="all-posts-warning">All post have been leaded</div>`;
-    listOfBlogs.innerHTML += allPostsWarning;
-    setTimeout(() => {
-      const removePost = listOfBlogs.querySelector('.all-posts-warning');
-      removePost.remove();
-    }, 1000);
+    const allPostsWarning = document.querySelector('.all-posts-warning');
+    if (allPostsWarning.innerHTML === '') {
+      allPostsWarning.innerHTML = 'There are no more posts';
+      setTimeout(() => {
+        allPostsWarning.innerHTML = '';
+      }, 3000);
+    }
+
     return;
   }
 }
