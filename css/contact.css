@@ -52,3 +52,12 @@ h1 {
   color: var(--clr-white);
   background: var(--clr-orange);
 }
+
+.message-success {
+  display: grid;
+  place-items: center;
+}
+
+.message-success a:hover {
+  text-decoration: underline;
+}

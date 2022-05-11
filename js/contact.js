@@ -58,9 +58,9 @@ form.addEventListener('submit', (e) => {
   }
 
   if (nameValidated && emailValidated && subjectValidated && messageValidated) {
-    section.innerHTML = `<div>
+    section.innerHTML = `<div class="message-success">
     <h1>Thank you for your message</h1>
-    <a href="./">Back to homepage</a>
+    <a href="./">&lt;&lt;Back to homepage</a>
     </div>`;
   }
 });
