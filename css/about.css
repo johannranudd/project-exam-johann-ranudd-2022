@@ -28,27 +28,13 @@ h1 {
 
 @media (min-width: 768px) {
   .section-center {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-
     grid-template-columns: 65% 35%;
     width: 90%;
     max-width: 900px;
-    /* padding: 0; */
-    /* padding-top: 25rem; */
-    /* padding-bottom: 25rem; */
+    padding-top: 6rem;
   }
   .section-center p {
     margin: 0;
     margin-right: 4rem;
   }
-  .section-center img {
-  }
 }
-/* @media (min-width: 1200px) {
-  .background-image-container {
-    top: -120px;
-  }
-} */
