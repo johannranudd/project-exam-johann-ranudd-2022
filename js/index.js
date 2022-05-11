@@ -102,31 +102,30 @@ function dynamicHeroImage(cardImages, data) {
     let timeout2 = null;
 
     cardImage.addEventListener('mouseenter', (e) => {
-      if (Number(cardImage.dataset.id) !== currentImageHovered) {
-        currentImageHovered = Number(cardImage.dataset.id);
+      currentImageHovered = Number(cardImage.dataset.id);
+      const filteredHeroImage = data.filter((item) => {
+        return item.id === currentImageHovered;
+      });
 
-        const filteredHeroImage = data.filter((item) => {
-          return item.id === currentImageHovered;
-        });
+      const hoverImage =
+        filteredHeroImage[0]._embedded['wp:featuredmedia'][0].source_url;
 
-        const hoverImage =
-          filteredHeroImage[0]._embedded['wp:featuredmedia'][0].source_url;
+      timeout1 = setTimeout(() => {
+        heroImage.classList.add('fade-out');
+      }, 700);
 
-        timeout1 = setTimeout(() => {
-          heroImage.classList.add('fade-out');
-        }, 700);
-
-        timeout2 = setTimeout(() => {
-          heroImage.src = hoverImage;
-          heroImage.alt =
-            filteredHeroImage[0]._embedded['wp:featuredmedia'][0].alt_text;
-          heroHeader.innerHTML = filteredHeroImage[0].title.rendered;
-          heroParagraph.innerHTML =
-            filteredHeroImage[0].excerpt.rendered.substring(0, 50);
-          readMoreHeroBtn.href = `./details.html?id=${filteredHeroImage[0].id}`;
-          heroImage.classList.remove('fade-out');
-        }, 1000);
-      }
+      timeout2 = setTimeout(() => {
+        heroImage.src = hoverImage;
+        heroImage.alt =
+          filteredHeroImage[0]._embedded['wp:featuredmedia'][0].alt_text;
+        heroHeader.innerHTML = filteredHeroImage[0].title.rendered;
+        heroParagraph.innerHTML =
+          filteredHeroImage[0].excerpt.rendered.substring(0, 50);
+        readMoreHeroBtn.href = `./details.html?id=${filteredHeroImage[0].id}`;
+        heroImage.classList.remove('fade-out');
+      }, 1000);
+      // if (Number(cardImage.dataset.id) !== currentImageHovered) {
+      // }
     });
 
     cardImage.addEventListener('mouseleave', () => {
