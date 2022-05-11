@@ -69,8 +69,8 @@ function displayWarning(name, message) {
   const label = name.previousElementSibling;
   label.classList.add('danger');
   label.innerHTML = `${name.id} ${message}`;
-  setTimeout(() => {
-    label.innerHTML = name.id;
-    label.classList.remove('danger');
-  }, 5000);
+  // setTimeout(() => {
+  //   label.innerHTML = name.id;
+  //   label.classList.remove('danger');
+  // }, 5000);
 }
