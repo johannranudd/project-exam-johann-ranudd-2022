@@ -61,7 +61,7 @@ sortByBtns.addEventListener('click', (e) => sortByFunction(e));
 // LOAD MORE
 let offset = 10;
 async function loadeMoreFunction() {
-  const offsetURL = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&offset=${offset}&per_page=2`;
+  const offsetURL = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&offset=${offset}&per_page=10`;
   const moreData = await getData(offsetURL);
   if (moreData.length > 0) {
     offset += moreData.length;
