@@ -224,6 +224,23 @@
     transform: translateY(-6rem);
   }
 
+  /* dots */
+  .dots-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+  }
+
+  .dot {
+    height: 5px;
+    width: 5px;
+    margin: 0 1rem;
+    border-radius: 50%;
+  }
+
   /* featured-section */
 
   .featured-section {
@@ -252,6 +269,10 @@
 
   .featured-list div {
     /* background: #def; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
     transition: 0.3s;
   }
 
@@ -265,6 +286,6 @@
   }
 
   .featured-list a {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
   }
 }

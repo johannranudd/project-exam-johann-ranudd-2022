@@ -159,19 +159,28 @@ section.addEventListener('click', (e) => {
 });
 
 window.addEventListener('DOMContentLoaded', slideFunction);
+const dots = document.querySelectorAll('.dot');
+// console.log(dots[2]);
 
 function slideFunction() {
+  dots.forEach((dot) => {
+    dot.style.backgroundColor = 'grey';
+  });
   if (sliderValue === 0) {
     slider.style.transform = 'translate(0%, 0%)';
+    dots[0].style.backgroundColor = 'black';
   }
   if (sliderValue === 1) {
     slider.style.transform = 'translate(-100%, 0%)';
+    dots[1].style.backgroundColor = 'black';
   }
   if (sliderValue === maxValue) {
     slider.style.transform = 'translate(-200%, 0%)';
+    dots[2].style.backgroundColor = 'black';
   }
 }
 
+// featured posts
 function displayFeaturedPosts(data) {
   const filterByFeatured = data.filter((featuredItem) => {
     if (featuredItem.tags.length) {
@@ -179,6 +188,10 @@ function displayFeaturedPosts(data) {
     }
   });
   filterByFeatured.map((item) => {
+    const year = item.date.substring(0, 4);
+    const month = item.date.substring(5, 7);
+    const day = item.date.substring(8, 10);
+    const fullDate = `${day}.${month}.${year}`;
     const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
     const altText = item._embedded['wp:featuredmedia'][0].alt_text;
     featuredList.innerHTML += `
@@ -186,6 +199,7 @@ function displayFeaturedPosts(data) {
         <img src="${imageUrl}" alt="${altText}"/>
         <div>
           ${item.content.rendered.substring(0, 200)} <br/>
+          <p>Date: <strong>${fullDate}</strong></p>
           <a href="./details.html?id=${item.id}">Read more</a>
         </div>
       </li>

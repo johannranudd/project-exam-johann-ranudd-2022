@@ -32,7 +32,14 @@ async function displaySingleData() {
   if (data) {
     spinner.remove();
   }
-  const { title, excerpt, _embedded } = data;
+  const { title, excerpt, _embedded, date } = data;
+  console.log(date);
+
+  // console.log(date.substring(8, 10));
+  const year = date.substring(0, 4);
+  const month = date.substring(5, 7);
+  const day = date.substring(8, 10);
+  const fullDate = `${day}.${month}.${year}`;
 
   //   render content
   detailsHeader.innerHTML = title.rendered;
@@ -41,6 +48,7 @@ async function displaySingleData() {
     <img src="${_embedded['wp:featuredmedia'][0].source_url}" alt="${_embedded['wp:featuredmedia'][0].alt_text}" /> 
     <div class="backdrop">View image</div>
   </div>
+  <p class="date-posted">Date: <strong>${fullDate}</strong></p>
   <div class="blog-text">
     <p>${data.content.rendered}</p>
   </div>

@@ -100,6 +100,10 @@
   }
 
   .list-of-blogs div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
     transition: 0.3s;
   }
 
@@ -113,6 +117,6 @@
   }
 
   .list-of-blogs a {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
   }
 }

@@ -50,6 +50,10 @@
   cursor: auto;
 }
 
+.date-posted {
+  margin-bottom: 1rem;
+}
+
 /* !MEDIA */
 
 @media (min-width: 768px) {

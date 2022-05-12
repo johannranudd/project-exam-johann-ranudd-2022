@@ -36,9 +36,12 @@ displayTenFirstBlogs();
 
 // MAP DATA
 function mapData(data) {
-  console.log(totalData);
   listOfBlogs.innerHTML = '';
   data.map((item) => {
+    const year = item.date.substring(0, 4);
+    const month = item.date.substring(5, 7);
+    const day = item.date.substring(8, 10);
+    const fullDate = `${day}.${month}.${year}`;
     const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
     const altText = item._embedded['wp:featuredmedia'][0].alt_text;
     listOfBlogs.innerHTML += `
@@ -46,6 +49,7 @@ function mapData(data) {
         <img src="${imageUrl}" alt="${altText}"/>
         <div>
           ${item.content.rendered.substring(0, 200)} <br/>
+          <p>Date: <strong>${fullDate}</strong></p>
           <a href="./details.html?id=${item.id}">Read more</a>
         </div>
       </li>
