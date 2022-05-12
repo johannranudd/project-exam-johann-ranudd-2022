@@ -36,6 +36,7 @@ displayTenFirstBlogs();
 
 // MAP DATA
 function mapData(data) {
+  console.log(totalData);
   listOfBlogs.innerHTML = '';
   data.map((item) => {
     const imageUrl = item._embedded['wp:featuredmedia'][0].source_url;
@@ -50,8 +51,8 @@ function mapData(data) {
       </li>
   `;
   });
-  sortByBtns.addEventListener('click', (e) => sortByFunction(e));
 }
+sortByBtns.addEventListener('click', (e) => sortByFunction(e));
 
 // LOAD MORE
 let offset = 10;
@@ -72,7 +73,6 @@ async function loadeMoreFunction() {
         allPostsWarning.innerHTML = '';
       }, 3000);
     }
-
     return;
   }
 }
@@ -100,3 +100,4 @@ function sortByFunction(e) {
     mapData(oldest);
   }
 }
+// console.log(totalData);
