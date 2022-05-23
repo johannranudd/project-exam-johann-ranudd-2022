@@ -40,7 +40,6 @@
 .show-modal {
   display: grid;
   justify-items: center;
-  padding-top: 13.2rem;
   cursor: pointer;
 }
 
@@ -48,6 +47,11 @@
   width: 95%;
   max-width: 1200px;
   cursor: auto;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .date-posted {
@@ -60,9 +64,6 @@
   .show-modal {
     display: grid;
     align-items: center;
-    height: 100vh;
     padding: 0;
-  }
-  .modal img {
   }
 }
