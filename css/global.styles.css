@@ -152,7 +152,7 @@ button {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--clr-black);
 }
 
@@ -264,6 +264,9 @@ button {
 @media (min-width: 400px) {
   .mobile-menu {
     max-width: 250px;
+  }
+  .logo {
+    font-size: 1.5rem;
   }
 }
 
