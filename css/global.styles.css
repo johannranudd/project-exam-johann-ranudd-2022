@@ -259,6 +259,22 @@ button {
   z-index: -1;
 }
 
+/* mobile */
+.active-page-mobile {
+  color: var(--clr-orange) !important;
+}
+
+/* desktop */
+
+.active-page-dark {
+  color: var(--clr-orange) !important;
+  text-decoration: underline;
+}
+.active-page-light {
+  color: var(--clr-white) !important;
+  text-decoration: underline;
+}
+
 /* !MEDIA */
 
 @media (min-width: 400px) {
