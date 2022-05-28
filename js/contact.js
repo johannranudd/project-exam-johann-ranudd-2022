@@ -30,10 +30,10 @@ form.addEventListener('submit', (e) => {
   const subject = form.querySelector('#subject');
   const message = form.querySelector('#message');
 
-  const labels = form.querySelectorAll('label');
-  labels.forEach((label) => {
-    label.classList = '';
-  });
+  // const labels = form.querySelectorAll('label');
+  // labels.forEach((label) => {
+  //   label.classList = '';
+  // });
 
   let nameValidated = false;
   let emailValidated = false;
