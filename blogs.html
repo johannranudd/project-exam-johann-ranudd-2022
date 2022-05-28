@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="shipwreck blog" />
     <meta name="author" content="Johann Ranudd" />
-    <meta name="keywords" content="shipwreck, blog, diving" />
+    <meta name="keywords" content="shipwreck, blog, diving, posts" />
 
     <link rel="stylesheet" href="./css/global.styles.css" />
     <link rel="stylesheet" href="./css/blogs.css" />
@@ -30,7 +30,7 @@
       src="https://kit.fontawesome.com/7246593e30.js"
       crossorigin="anonymous"
     ></script>
-    <title>Blogs, shipwreck blog</title>
+    <title>Posts, shipwreck blog</title>
   </head>
   <body>
     <header class="navbar">
@@ -41,7 +41,7 @@
 
         <ul class="main-menu">
           <li><a href="./">Home</a></li>
-          <li><a href="./blogs.html" class="active-page-dark">Blogs</a></li>
+          <li><a href="./blogs.html" class="active-page-dark">Posts</a></li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
         </ul>
@@ -57,7 +57,7 @@
             <a href="./">Home</a>
           </li>
           <li>
-            <a href="./blogs.html" class="active-page-mobile">Blogs</a>
+            <a href="./blogs.html" class="active-page-mobile">Posts</a>
           </li>
           <li><a href="./about.html">About</a></li>
           <li><a href="./contact.html">Contact</a></li>
@@ -72,14 +72,18 @@
       <h1>Blogs</h1>
       <!-- sort -->
       <div class="sort-by-buttons">
-        <button data-id="latest" class="latest-btn">Newest</button>
-        <button data-id="oldest" class="oldest-btn">Oldest</button>
+        <button type="button" data-id="latest" class="latest-btn">
+          Newest
+        </button>
+        <button type="button" data-id="oldest" class="oldest-btn">
+          Oldest
+        </button>
       </div>
       <ul class="list-of-blogs"></ul>
     </section>
     <div class="load-more-btn-container">
       <div class="all-posts-warning"></div>
-      <button class="load-more-btn">Load more</button>
+      <button type="button" class="load-more-btn">Load more</button>
     </div>
 
     <!-- footer -->

@@ -30,6 +30,11 @@ form.addEventListener('submit', (e) => {
   const subject = form.querySelector('#subject');
   const message = form.querySelector('#message');
 
+  const labels = form.querySelectorAll('label');
+  labels.forEach((label) => {
+    label.classList = '';
+  });
+
   let nameValidated = false;
   let emailValidated = false;
   let subjectValidated = false;
@@ -37,23 +42,27 @@ form.addEventListener('submit', (e) => {
 
   //   validation
   if (!nameRegEx.test(name.value) || name.value.length <= 5) {
-    displayWarning(name, 'must be more than 5 characters');
+    displayWarning(name, 'must be more than 5 characters', 'danger');
   } else {
+    displayWarning(name, '', 'input-success');
     nameValidated = true;
   }
   if (!emailRegEx.test(email.value)) {
-    displayWarning(email, 'email must be a valid email address');
+    displayWarning(email, 'must be a valid email address', 'danger');
   } else {
+    displayWarning(email, '', 'input-success');
     emailValidated = true;
   }
   if (subject.value.length <= 15) {
-    displayWarning(subject, 'subject must be more than 15 characters');
+    displayWarning(subject, 'must be more than 15 characters', 'danger');
   } else {
+    displayWarning(subject, '', 'input-success');
     subjectValidated = true;
   }
   if (message.value.length <= 25) {
-    displayWarning(message, 'message must be more than 25 characters');
+    displayWarning(message, 'must be more than 25 characters', 'danger');
   } else {
+    displayWarning(message, '', 'input-success');
     messageValidated = true;
   }
 
@@ -65,12 +74,8 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-function displayWarning(name, message) {
+function displayWarning(name, message, type) {
   const label = name.previousElementSibling;
-  label.classList.add('danger');
+  label.classList.add(type);
   label.innerHTML = `${name.id} ${message}`;
-  // setTimeout(() => {
-  //   label.innerHTML = name.id;
-  //   label.classList.remove('danger');
-  // }, 5000);
 }

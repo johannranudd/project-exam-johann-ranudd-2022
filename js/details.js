@@ -31,11 +31,9 @@ async function displaySingleData() {
 
   if (data) {
     spinner.remove();
+    document.title = data.title.rendered;
   }
-  const { title, excerpt, _embedded, date } = data;
-  console.log(date);
-
-  // console.log(date.substring(8, 10));
+  const { title, _embedded, date } = data;
   const year = date.substring(0, 4);
   const month = date.substring(5, 7);
   const day = date.substring(8, 10);
