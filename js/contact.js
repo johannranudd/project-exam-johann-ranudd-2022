@@ -30,11 +30,6 @@ form.addEventListener('submit', (e) => {
   const subject = form.querySelector('#subject');
   const message = form.querySelector('#message');
 
-  // const labels = form.querySelectorAll('label');
-  // labels.forEach((label) => {
-  //   label.classList = '';
-  // });
-
   let nameValidated = false;
   let emailValidated = false;
   let subjectValidated = false;
@@ -53,13 +48,13 @@ form.addEventListener('submit', (e) => {
     displayWarning(email, '', 'input-success');
     emailValidated = true;
   }
-  if (subject.value.length <= 15) {
+  if (subject.value.length < 15) {
     displayWarning(subject, 'must be more than 15 characters', 'danger');
   } else {
     displayWarning(subject, '', 'input-success');
     subjectValidated = true;
   }
-  if (message.value.length <= 25) {
+  if (message.value.length < 25) {
     displayWarning(message, 'must be more than 25 characters', 'danger');
   } else {
     displayWarning(message, '', 'input-success');
