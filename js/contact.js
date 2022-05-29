@@ -36,7 +36,7 @@ form.addEventListener('submit', (e) => {
   let messageValidated = false;
 
   //   validation
-  if (!nameRegEx.test(name.value) || name.value.length <= 5) {
+  if (!nameRegEx.test(name.value) || name.value.length < 5) {
     displayWarning(name, 'must be more than 5 characters', 'danger');
   } else {
     displayWarning(name, '', 'input-success');
