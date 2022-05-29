@@ -28,10 +28,6 @@ h1 {
   font-weight: 600;
 }
 
-.danger {
-  background: var(--clr-alert);
-}
-
 .contact-form input,
 .contact-form textarea {
   padding: 0.5rem 0.3rem;
@@ -65,4 +61,8 @@ h1 {
 
 .input-success {
   background: var(--clr-white);
+}
+
+.danger {
+  background: var(--clr-alert);
 }
