@@ -13,6 +13,7 @@ const heroParagraph = document.querySelector('.hero-paragraph');
 const spinner = document.querySelector('.spinner');
 const featuredList = document.querySelector('.featured-list');
 const readMoreHeroBtn = document.querySelector('.read-more-btn');
+const mobileDots = document.querySelector('.mobile-dots');
 
 // mobile menu variables and functionality
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -53,8 +54,9 @@ function displayHeroImage(data) {
   heroHeader.innerHTML = data[heroID].title.rendered;
   heroParagraph.innerHTML = data[heroID].excerpt.rendered.substring(0, 50);
   readMoreHeroBtn.href = `./details.html?id=${data[heroID].id}`;
-}
 
+  mobileDots.innerHTML = `${heroID + 1}/${data.length}`;
+}
 // mobile slider function
 function mobileSliderFunction(e, data) {
   const maxLength = data.length;
@@ -123,6 +125,8 @@ function dynamicHeroImage(cardImages, data) {
           filteredHeroImage[0].excerpt.rendered.substring(0, 50);
         readMoreHeroBtn.href = `./details.html?id=${filteredHeroImage[0].id}`;
         heroImage.classList.remove('fade-out');
+        heroID = index;
+        mobileDots.innerHTML = `${heroID + 1}/${cardImages.length}`;
       }, 1000);
       // if (Number(cardImage.dataset.id) !== currentImageHovered) {
       // }

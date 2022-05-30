@@ -74,6 +74,10 @@
   cursor: pointer;
 }
 
+.mobile-dots {
+  margin-top: 1rem;
+}
+
 /* CARDS */
 .slider-container {
   display: none;
@@ -232,6 +236,10 @@
     transform: translateX(-50%);
 
     display: flex;
+  }
+
+  .mobile-dots {
+    display: none;
   }
 
   .dot {
