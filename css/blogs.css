@@ -36,7 +36,6 @@
 .search-form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
   margin: auto;
   margin-bottom: 2rem;
 }
@@ -89,9 +88,6 @@
 
 .load-more-btn-container button {
   border: 2px solid var(--clr-orange);
-  /* margin: 0 0.5rem; */
-  /* width: 6rem; */
-  /* height: 2rem; */
   padding: 0.5rem;
   margin: 1rem;
   border-radius: 5px;
@@ -112,6 +108,10 @@
 @media (min-width: 768px) {
   .blog-section {
     max-width: 900px;
+  }
+
+  .search-form {
+    max-width: 300px;
   }
 
   .list-of-blogs {
