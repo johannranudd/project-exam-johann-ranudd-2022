@@ -135,4 +135,6 @@ async function searchFunction(e) {
   } else {
     mapData(getMatchingPosts);
   }
+  searchInput.value = '';
+  searchInput.focus();
 }
