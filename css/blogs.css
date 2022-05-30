@@ -6,10 +6,15 @@
   margin: auto;
 }
 
+.sort-by-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
 .sort-by-buttons {
   display: flex;
   justify-content: center;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .sort-by-buttons button {
@@ -27,10 +32,23 @@
   background: var(--clr-orange);
 }
 
-.list-of-blogs {
-  /* padding: 0 1rem; */
+/* search form */
+.search-form {
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
 }
 
+.search-form input {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+.search-form button {
+  font-size: 1.2rem;
+}
+
+/* list */
 .list-of-blogs li {
   margin-bottom: 3rem;
 }

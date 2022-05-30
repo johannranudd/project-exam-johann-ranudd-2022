@@ -104,4 +104,39 @@ function sortByFunction(e) {
     mapData(oldest);
   }
 }
-// console.log(totalData);
+
+// !rtest
+const searchForm = document.querySelector('.search-form');
+const searchInput = searchForm.querySelector('input');
+const searchFormLabel = searchForm.querySelector('label');
+
+searchForm.addEventListener('submit', searchFunction);
+
+async function searchFunction(e) {
+  e.preventDefault();
+  const allPostsUrl = `https://www.johannblog.one/wp-json/wp/v2/posts?_embed=true&per_page=100`;
+  const searchData = await getData(allPostsUrl);
+  const getMatchingPosts = searchData.filter((item) => {
+    if (
+      searchInput.value &&
+      item.title.rendered
+        .toLowerCase()
+        .includes(searchInput.value.toLowerCase())
+    ) {
+      return item;
+    }
+  });
+  console.log(getMatchingPosts.length);
+  if (getMatchingPosts.length === 0) {
+    console.log('no results');
+    searchFormLabel.innerHTML = 'No wrecks found with that name';
+    searchFormLabel.style.color = 'red';
+    setTimeout(() => {
+      searchFormLabel.innerHTML = 'Search wreck name';
+      searchFormLabel.style.color = 'black';
+    }, 3000);
+  } else {
+    mapData(getMatchingPosts);
+  }
+}
+// !rtest
