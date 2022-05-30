@@ -105,7 +105,6 @@ function sortByFunction(e) {
   }
 }
 
-// !rtest
 const searchForm = document.querySelector('.search-form');
 const searchInput = searchForm.querySelector('input');
 const searchFormLabel = searchForm.querySelector('label');
@@ -126,9 +125,7 @@ async function searchFunction(e) {
       return item;
     }
   });
-  console.log(getMatchingPosts.length);
   if (getMatchingPosts.length === 0) {
-    console.log('no results');
     searchFormLabel.innerHTML = 'No wrecks found with that name';
     searchFormLabel.style.color = 'red';
     setTimeout(() => {
@@ -139,4 +136,3 @@ async function searchFunction(e) {
     mapData(getMatchingPosts);
   }
 }
-// !rtest
